@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 400" role="img" aria-label="存錢豬與長出金幣的小樹">
+  <ellipse cx="240" cy="372" rx="190" ry="16" fill="#1B2A4A" opacity=".12"/>
+  <!-- tree -->
+  <path d="M372 360 C372 300 368 270 376 220" stroke="#2FA37F" stroke-width="12" fill="none" stroke-linecap="round"/>
+  <path d="M376 260 C410 250 428 230 430 208 C400 212 380 232 376 260Z" fill="#3CC9A0"/>
+  <path d="M374 290 C345 282 328 262 326 242 C354 246 372 266 374 290Z" fill="#3CC9A0"/>
+  <circle cx="378" cy="198" r="30" fill="#FFC93C" stroke="#1B2A4A" stroke-width="5"/>
+  <text x="378" y="209" text-anchor="middle" font-size="30" font-weight="800" fill="#1B2A4A" font-family="sans-serif">$</text>
+  <circle cx="436" cy="262" r="17" fill="#FFC93C" stroke="#1B2A4A" stroke-width="4"/>
+  <circle cx="318" cy="222" r="14" fill="#FFC93C" stroke="#1B2A4A" stroke-width="4"/>
+  <!-- pig -->
+  <rect x="104" y="296" width="30" height="60" rx="12" fill="#FF6B5B" stroke="#1B2A4A" stroke-width="5"/>
+  <rect x="226" y="296" width="30" height="60" rx="12" fill="#FF6B5B" stroke="#1B2A4A" stroke-width="5"/>
+  <ellipse cx="190" cy="262" rx="124" ry="92" fill="#FF8A7A" stroke="#1B2A4A" stroke-width="5"/>
+  <path d="M120 188 L128 150 L162 178Z" fill="#FF6B5B" stroke="#1B2A4A" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M66 270 C40 268 44 236 58 238" stroke="#1B2A4A" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <ellipse cx="288" cy="268" rx="34" ry="28" fill="#FFB1A6" stroke="#1B2A4A" stroke-width="5"/>
+  <ellipse cx="280" cy="268" rx="5" ry="8" fill="#1B2A4A"/>
+  <ellipse cx="298" cy="268" rx="5" ry="8" fill="#1B2A4A"/>
+  <circle cx="246" cy="236" r="8" fill="#1B2A4A"/>
+  <circle cx="249" cy="233" r="2.5" fill="#fff"/>
+  <path d="M236 292 Q250 304 264 292" stroke="#1B2A4A" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <ellipse cx="222" cy="262" rx="14" ry="9" fill="#FF6B5B" opacity=".55"/>
+  <rect x="150" y="184" width="64" height="12" rx="6" fill="#1B2A4A"/>
+  <!-- falling coin -->
+  <circle cx="182" cy="116" r="30" fill="#FFC93C" stroke="#1B2A4A" stroke-width="5"/>
+  <text x="182" y="127" text-anchor="middle" font-size="30" font-weight="800" fill="#1B2A4A" font-family="sans-serif">$</text>
+  <path d="M182 156 L182 172" stroke="#1B2A4A" stroke-width="5" stroke-linecap="round" stroke-dasharray="2 12"/>
+  <path d="M96 120 l8 -16 l8 16 l-16 -6 h16z" fill="#7C6CF0"/>
+  <circle cx="64" cy="170" r="7" fill="#3CC9A0"/>
+  <circle cx="420" cy="120" r="8" fill="#FF6B5B"/>
+</svg>
