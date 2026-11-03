@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>小豬學投資｜理財小白的第一堂課</title>
+<meta name="description" content="用白話文從零學台股與 ETF：7 個章節、看懂圖表、複利計算機、小測驗與名詞小辭典。">
+<link rel="icon" href="images/ch2.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Huninn&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="#top"><img src="images/ch2.svg" alt="" width="32" height="32"><span>小豬學投資</span></a>
+  <nav aria-label="主選單">
+    <a href="#path">學習路線</a>
+    <a href="#charts">看懂圖表</a>
+    <a href="#calc">複利計算機</a>
+    <a href="#glossary">名詞辭典</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-text">
+      <p class="tag">給完全沒碰過投資的你</p>
+      <h1>先別怕，<br>投資可以<em>一小步</em>一小步學</h1>
+      <p class="lead">7 個短短的章節，用白話文帶你認識台股與 ETF，還會教你看懂 K 線圖與基本分析。每章讀完做 2 題小測驗，進度會自動記在你的瀏覽器。</p>
+      <div class="cta">
+        <a class="btn" href="#path">開始第 1 章</a>
+        <a class="btn ghost" href="#calc">先玩複利計算機</a>
+      </div>
+      <div class="progress" aria-live="polite">
+        <div class="bar"><span id="progressFill"></span></div>
+        <p id="progressText">已完成 0 / 7 章</p>
+      </div>
+    </div>
+    <img class="hero-img" src="images/hero.svg" alt="一隻存錢豬旁邊長出一棵結滿金幣的小樹" width="480" height="400">
+  </section>
+
+  <section id="path" class="wrap">
+    <h2>學習路線</h2>
+    <p class="sub">照順序讀最容易懂。點開章節標題即可展開內容。</p>
+    <div id="chapters" class="chapters"></div>
+  </section>
+
+  <section id="charts" class="wrap">
+    <h2>看懂圖表：互動教室</h2>
+    <p class="sub">台灣的習慣是「紅漲綠跌」，跟歐美相反，看海外圖表時要特別注意。下面的圖都是教學用的模擬資料，不是真實股價。</p>
+
+    <div class="panel lesson">
+      <h3>第 1 堂：一根 K 棒在說什麼？</h3>
+      <p>一根 K 棒記錄一段時間（例如一天）的 4 個價格：開盤、收盤、最高、最低。拖動滑桿，看 K 棒怎麼變。</p>
+      <div class="candle-grid">
+        <form id="candleForm" class="sliders" autocomplete="off">
+          <label for="cOpen">開盤價：<b id="oOut">100</b>
+            <input id="cOpen" type="range" min="80" max="120" value="100"></label>
+          <label for="cClose">收盤價：<b id="cOut">108</b>
+            <input id="cClose" type="range" min="80" max="120" value="108"></label>
+          <label for="cHigh">最高價：<b id="hOut">112</b>
+            <input id="cHigh" type="range" min="80" max="120" value="112"></label>
+          <label for="cLow">最低價：<b id="lOut">97</b>
+            <input id="cLow" type="range" min="80" max="120" value="97"></label>
+        </form>
+        <div class="candle-view">
+          <svg id="candleSvg" viewBox="0 0 200 220" role="img" aria-label="可調整的 K 棒示意圖"></svg>
+          <p id="candleText" class="read" aria-live="polite"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel lesson">
+      <h3>第 2 堂：趨勢、均線與成交量</h3>
+      <p>下面是 60 天的模擬走勢。點任何一根 K 棒看當天資料，也可以開關均線和成交量。</p>
+      <div class="toggles">
+        <label for="tMa5"><input id="tMa5" type="checkbox" checked> 5 日均線</label>
+        <label for="tMa20"><input id="tMa20" type="checkbox" checked> 20 日均線</label>
+        <label for="tVol"><input id="tVol" type="checkbox" checked> 成交量</label>
+      </div>
+      <div class="chart-scroll"><svg id="demoChart" viewBox="0 0 640 340" role="img" aria-label="60 天模擬 K 線圖含均線與成交量"></svg></div>
+      <p id="demoInfo" class="read" aria-live="polite">點一根 K 棒看看。</p>
+      <ul class="legend">
+        <li><i class="sw up"></i>紅 K：收盤高於開盤，當天上漲</li>
+        <li><i class="sw down"></i>綠 K：收盤低於開盤，當天下跌</li>
+        <li><i class="sw ma5"></i>5 日均線：最近 5 天收盤價的平均，反映短期方向</li>
+        <li><i class="sw ma20"></i>20 日均線：約一個月的平均，反映中期方向</li>
+      </ul>
+    </div>
+
+    <div class="read-grid">
+      <article class="panel">
+        <h3>怎麼讀一根 K 棒</h3>
+        <ul class="plain">
+          <li><b>實體很長：</b>開盤到收盤差很多，當天多方或空方力道明顯。</li>
+          <li><b>上影線很長：</b>價格曾衝高，但被賣壓壓回來。</li>
+          <li><b>下影線很長：</b>價格曾殺低，但被買盤拉回來。</li>
+          <li><b>實體很小、上下影線都有：</b>買賣雙方拉鋸，方向未定。</li>
+        </ul>
+      </article>
+      <article class="panel">
+        <h3>怎麼讀趨勢</h3>
+        <ul class="plain">
+          <li><b>上升趨勢：</b>高點與低點一波比一波高，短期均線在長期均線之上。</li>
+          <li><b>下降趨勢：</b>高點與低點一波比一波低，短期均線在長期均線之下。</li>
+          <li><b>盤整：</b>在一個區間來回，均線纏在一起。</li>
+          <li><b>量價關係：</b>上漲有量比較有力，上漲沒量要小心。</li>
+        </ul>
+      </article>
+      <article class="panel">
+        <h3>基本分析：看公司賺不賺錢</h3>
+        <ul class="plain">
+          <li><b>EPS（每股盈餘）：</b>公司一年賺的錢 ÷ 股數，越穩定成長越好。</li>
+          <li><b>本益比：</b>股價 ÷ EPS，可以想成「照現在的獲利要幾年回本」，要跟同產業比較。</li>
+          <li><b>殖利率：</b>每年配息 ÷ 股價，要連同股價漲跌一起看。</li>
+          <li><b>ETF 要看：</b>追蹤指數、費用率、成分股與規模。</li>
+        </ul>
+      </article>
+    </div>
+
+    <p class="tip">圖表只能描述「過去發生了什麼」，沒辦法保證未來。用它來了解現況與控制風險，比拿來預測漲跌更實用。</p>
+  </section>
+
+  <section id="calc" class="wrap calc">
+    <h2>複利計算機</h2>
+    <p class="sub">假設每年報酬率固定，看看時間怎麼幫你的錢長大。這只是試算，實際報酬會上下波動，不保證獲利。</p>
+    <div class="calc-grid">
+      <form id="calcForm" class="panel" autocomplete="off">
+        <label for="principal">一開始投入（元）
+          <input id="principal" type="number" min="0" step="1000" value="10000" inputmode="numeric">
+        </label>
+        <label for="monthly">每月再投入（元）
+          <input id="monthly" type="number" min="0" step="500" value="3000" inputmode="numeric">
+        </label>
+        <label for="rate">預期年化報酬率：<b id="rateOut">6</b>%
+          <input id="rate" type="range" min="1" max="12" step="0.5" value="6">
+        </label>
+        <label for="years">投資年數：<b id="yearsOut">20</b> 年
+          <input id="years" type="range" min="1" max="40" step="1" value="20">
+        </label>
+      </form>
+      <div class="panel result">
+        <p class="big-label">到期資產約</p>
+        <p id="total" class="big">—</p>
+        <dl>
+          <div><dt><i class="dot c1"></i>你自己投入的錢</dt><dd id="paid">—</dd></div>
+          <div><dt><i class="dot c2"></i>複利幫你賺的錢</dt><dd id="gain">—</dd></div>
+        </dl>
+        <svg id="chart" viewBox="0 0 400 180" role="img" aria-label="每年資產成長長條圖"></svg>
+        <p class="note" id="calcNote"></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="glossary" class="wrap">
+    <h2>名詞小辭典</h2>
+    <p class="sub">看到不懂的字就來這裡查。</p>
+    <label class="search" for="q"><span>搜尋</span>
+      <input id="q" type="search" placeholder="例如：ETF、股息、停損">
+    </label>
+    <dl id="terms" class="terms"></dl>
+    <p id="noTerm" class="note" hidden>找不到這個詞，換個關鍵字試試。</p>
+  </section>
+</main>
+
+<footer>
+  <p><b>提醒：</b>本站只提供基礎教學，不是投資建議，也不推薦任何個股或基金。投資有賺有賠，請先確認自己的緊急預備金與可承受的風險，再用閒錢開始。手續費與稅率以券商及主管機關最新公告為準。</p>
+  <button id="reset" class="link" type="button">清除我的學習進度</button>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
